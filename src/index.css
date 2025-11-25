@@ -23,6 +23,14 @@
   src: url("/fonts/fontThree.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: fontFour;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("/fonts/fontFour.woff2") format("woff2");
+}
+
 @theme {
   /* Custom breakpoints for iPhone models */
   --breakpoint-ip-se: 375px; /* iPhone SE (2020, 2022), 13 Mini */
@@ -47,6 +55,7 @@
   --font-fontOne: "fontOne", sans-serif;
   --font-fontTwo: "fontTwo", sans-serif;
   --font-fontThree: "fontThree", sans-serif;
+  --font-fontFour: "fontFour", sans-serif;
 
   /* Primary - Neutral (Light Mode) */
   --color-primary-100: oklch(0.99 0 0);

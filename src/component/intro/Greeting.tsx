@@ -185,7 +185,10 @@ const Greeting = () => {
   const setAppState = useAppStore((store) => store.setAppState);
 
   return (
-    <div className="relative flex h-screen flex-col justify-center">
+    <div
+      onClick={clickLetterHandler}
+      className="relative flex h-screen flex-col justify-center"
+    >
       <img src={imageMap.bg1} alt="" />
       <div className="relative flex-1">
         <img className="h-full w-full" src={imageMap.bg10} />
@@ -196,11 +199,11 @@ const Greeting = () => {
           ref={titleRef}
           className="font-fontThree text-center text-5xl leading-14 text-[#928362]"
         >
-          Thùy Trang <br />& <br />
+          Thùy Giang <br />& <br />
           Thanh Hoàng
         </h3>
         <div ref={imageRef} className="relative mx-auto w-5/6">
-          <img onClick={clickLetterHandler} src={imageMap.anh_thu_3} alt="" />
+          <img src={imageMap.anh_thu_3} alt="" />
           <div
             ref={imageTitle}
             className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#c3b8a2]"
