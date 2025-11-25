@@ -1,7 +1,12 @@
-import { useRef } from "react";
-import { gsap } from "gsap";
+/* eslint-disable react-hooks/refs */
+
+import { imageMap } from "@/imageMap";
+import useAppStore from "@/store/appStore";
+import { APP_STATE } from "@/utils/config";
+import { getInnerWidthAndHeight } from "@/utils/util";
 import { useGSAP } from "@gsap/react";
-import { imageMap } from "../../imageMap";
+import gsap from "gsap";
+import { useRef } from "react";
 
 const shapes = [
   {
@@ -25,11 +30,13 @@ const Greeting = () => {
   const imageRef = useRef<HTMLDivElement>(null);
   const imageTitle = useRef<HTMLDivElement>(null);
   const dateRef = useRef<HTMLHeadingElement>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-  const pathRef = useRef<SVGPathElement>(null);
+  const allowToClick = useRef(false);
+  const isClicked = useRef(false);
 
   const { contextSafe } = useGSAP(() => {
-    const tl = gsap.timeline({ delay: 0.5 });
+    const tl = gsap.timeline({
+      delay: 0.5,
+    });
 
     tl.fromTo(
       titleRef.current,
@@ -97,7 +104,7 @@ const Greeting = () => {
       "-=0.4",
     );
 
-    tl.set(pathRef.current, {
+    tl.set(document.getElementById("letterIconPath"), {
       attr: {
         d: shapes[0].path,
         fill: shapes[0].fill,
@@ -105,29 +112,77 @@ const Greeting = () => {
       },
     });
 
-    tl.to(svgRef.current, {
+    tl.to(document.getElementById("letterIconSvg"), {
       y: -10,
       duration: 0.5,
       ease: "power2.out",
       repeat: -1,
       yoyo: true,
+      onRepeat: () => {
+        allowToClick.current = true;
+      },
     });
   }, []);
 
   const clickLetterHandler = contextSafe(() => {
+    if (isClicked.current || !allowToClick.current) return;
+    isClicked.current = true;
+
     const pathElement = document.getElementById("letterIconPath");
-    if (!pathElement) return;
+    const svgElement = document.getElementById("letterIconSvg");
+    if (!pathElement || !svgElement) return;
+
     const tl = gsap.timeline();
-    tl.to("#letterIconPath", {
-      morphSVG: { shape: shapes[1].path },
-      duration: 0.8,
-      attr: {
-        fill: shapes[1].fill,
-        stroke: shapes[1].stroke,
-      },
+    gsap.killTweensOf(svgElement);
+
+    gsap.set(svgElement, { transformOrigin: "50% 50%", opacity: 0.5 });
+
+    tl.to(svgElement, {
+      scale: 1.5,
+      rotate: 15,
+      opacity: 0.5,
+      duration: 0.5,
       ease: "power2.inOut",
+      color: shapes[1].color,
+      fill: shapes[1].fill,
     });
+
+    tl.to(
+      pathElement,
+      {
+        morphSVG: { shape: shapes[1].path, shapeIndex: 1 },
+        duration: 1,
+        ease: "power2.inOut",
+        attr: {
+          fill: shapes[1].fill,
+          stroke: shapes[1].stroke,
+        },
+      },
+      "<",
+    );
+    const moveY = getInnerWidthAndHeight().height * 0.35;
+    const moveX = getInnerWidthAndHeight().width * 0.1;
+    tl.to(
+      svgElement,
+      {
+        scale: 8.25,
+        opacity: 0.4,
+        duration: 2.5,
+        y: -moveY,
+        x: -moveX,
+        ease: "power2.inOut",
+        filter: "drop-shadow(0 0 20px rgba(255, 0, 0, 0.35))",
+        onComplete: () => {
+          setTimeout(() => {
+            setAppState(APP_STATE.MAIN);
+          }, 500);
+        },
+      },
+      "-=0.4",
+    );
   });
+
+  const setAppState = useAppStore((store) => store.setAppState);
 
   return (
     <div className="relative flex h-screen flex-col justify-center">
@@ -168,7 +223,7 @@ const Greeting = () => {
 
       <div className="absolute top-[62%] left-[50%]">
         <svg
-          ref={svgRef}
+          id="letterIconSvg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           strokeWidth={1}
@@ -177,7 +232,7 @@ const Greeting = () => {
           className="h-15 w-15"
           style={{ color: shapes[0].color, transform: "rotate(-25deg)" }}
         >
-          <path id="letterIconPath" ref={pathRef} />
+          <path id="letterIconPath" />
         </svg>
       </div>
     </div>

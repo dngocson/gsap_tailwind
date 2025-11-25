@@ -1,29 +1,14 @@
-import Greeting from "./component/intro/Greeting";
+import Greeting from "@intro/Greeting";
+import Main from "@main/Main";
+import useAppStore from "@store/appStore";
+import { APP_STATE } from "@utils/config";
 
 function App() {
-  // const [theme, setTheme] = useState<"light" | "dark">(() => {
-  //   const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-  //   const prefersDark = window.matchMedia(
-  //     "(prefers-color-scheme: dark)",
-  //   ).matches;
-  //   return savedTheme || (prefersDark ? "dark" : "light");
-  // });
-
-  // useEffect(() => {
-  //   document.documentElement.classList.toggle("dark", theme === "dark");
-  // }, [theme]);
-
-  // const toggleTheme = () => {
-  //   const newTheme = theme === "light" ? "dark" : "light";
-  //   setTheme(newTheme);
-  //   document.documentElement.classList.toggle("dark", newTheme === "dark");
-  //   localStorage.setItem("theme", newTheme);
-  // };
-
+  const appState = useAppStore((state) => state.appState);
   return (
-    <div className="bg-primary-100 relative h-full min-h-screen w-full transition-colors duration-300">
-      <Greeting />
-      {/* <Test /> */}
+    <div className="relative h-full min-h-screen w-full transition-colors duration-300">
+      {appState === APP_STATE.INTRO && <Greeting />}
+      {appState === APP_STATE.MAIN && <Main />}
     </div>
   );
 }

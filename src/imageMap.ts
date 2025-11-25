@@ -1,5 +1,5 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-11-25T10:18:13.943Z
+// Generated at: 2025-11-25T13:26:09.674Z
 
 export const imageMap = {
   _7u6a5474_20251014203959_o83w5_jpg: '/images/7u6a5474-20251014203959-o83w5.jpg.jpeg',
@@ -36,8 +36,6 @@ export const imageMap = {
   _7u6a7883_20251014203401_da5va_jpg: '/images/7u6a7883-20251014203401-da5va.jpg.jpeg',
   _7u6a7959_20251014203736_bvuqm_jpg: '/images/7u6a7959-20251014203736-bvuqm.jpg.jpeg',
   _7u6a8086_20251014203400_u_s46_jpg: '/images/7u6a8086-20251014203400-u-s46.jpg.jpeg',
-  _7u6a8141_20251014203057__zo_e_jpg: '/images/7u6a8141-20251014203057--zo_e.jpg.jpeg',
-  _7u6a8141_20251014204259_bzi_u_jpg: '/images/7u6a8141-20251014204259-bzi_u.jpg.jpeg',
   _7u6a8159_20251014203709_hgoxa_jpg: '/images/7u6a8159-20251014203709-hgoxa.jpg.jpeg',
   _7u6a8330_20251014204106_pa4yv_jpg: '/images/7u6a8330-20251014204106-pa4yv.jpg.jpeg',
   _7u6a8330_20251014204106_pa4yv_jpg_1: '/images/7u6a8330-20251014204106-pa4yv.jpg_1.jpeg',
@@ -71,6 +69,8 @@ export const imageMap = {
   fasda_20250421104930_4ywrk: '/images/fasda-20250421104930-4ywrk.png',
   fasda_20250421105111_znwlo: '/images/fasda-20250421105111-znwlo.png',
   gif_nhac_be_nau_20250718143617_k_wa3: '/images/gif-nhac-be-nau-20250718143617-k_wa3.gif',
+  header1: '/images/header1.jpeg',
+  header2: '/images/header2.jpeg',
   ladipage_play: '/images/ladipage-play.svg',
   ldicon_discount_coupon: '/images/ldicon-discount-coupon.svg',
   new_ldicon_arrow_left: '/images/new-ldicon-arrow-left.svg',
