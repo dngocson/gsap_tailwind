@@ -185,6 +185,7 @@ const Time = () => {
         scrollTrigger: {
           trigger: ".letter-image-1",
           start: "top 80%",
+
           toggleActions: "play none none none",
         },
       });
