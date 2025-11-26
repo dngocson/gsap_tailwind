@@ -73,10 +73,11 @@ const Time = () => {
     },
     { dependencies: [timeLeft], scope: containerRef },
   );
-
   const { contextSafe } = useGSAP(
     () => {
       if (!containerRef.current) return;
+
+      ScrollTrigger.clearScrollMemory("manual");
 
       // HG Letters Timeline
       const hgLettersTl = gsap.timeline({
