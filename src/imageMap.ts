@@ -1,5 +1,5 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-11-25T15:52:00.143Z
+// Generated at: 2025-11-26T07:25:24.900Z
 
 export const imageMap = {
   _7u6a5474_20251014203959_o83w5_jpg: '/images/7u6a5474-20251014203959-o83w5.jpg.jpeg',
@@ -33,9 +33,7 @@ export const imageMap = {
   _7u6a7706_20251014203817_bpqyk_jpg: '/images/7u6a7706-20251014203817-bpqyk.jpg.jpeg',
   _7u6a7748_20251014203834__ho9r_jpg: '/images/7u6a7748-20251014203834--ho9r.jpg.jpeg',
   _7u6a7847_20251014203832_2h1aa_jpg: '/images/7u6a7847-20251014203832-2h1aa.jpg.jpeg',
-  _7u6a7883_20251014203401_da5va_jpg: '/images/7u6a7883-20251014203401-da5va.jpg.jpeg',
   _7u6a7959_20251014203736_bvuqm_jpg: '/images/7u6a7959-20251014203736-bvuqm.jpg.jpeg',
-  _7u6a8086_20251014203400_u_s46_jpg: '/images/7u6a8086-20251014203400-u-s46.jpg.jpeg',
   _7u6a8159_20251014203709_hgoxa_jpg: '/images/7u6a8159-20251014203709-hgoxa.jpg.jpeg',
   _7u6a8330_20251014204106_pa4yv_jpg: '/images/7u6a8330-20251014204106-pa4yv.jpg.jpeg',
   _7u6a8330_20251014204106_pa4yv_jpg_1: '/images/7u6a8330-20251014204106-pa4yv.jpg_1.jpeg',
@@ -49,9 +47,7 @@ export const imageMap = {
   anh_thu_1: '/images/anh-thu-1.png',
   anh_thu_2: '/images/anh-thu-2.png',
   anh_thu_3: '/images/anh-thu-3.png',
-  anh_thu_0000s_0001_rectangle__20250817172649_9nzzu: '/images/anh-thu_0000s_0001_rectangle_-20250817172649-9nzzu.png',
-  anh_thu_0000s_0002_rectangle__20250817172649_anvbg: '/images/anh-thu_0000s_0002_rectangle_-20250817172649-anvbg.png',
-  anh_thu_0000s_0003_layer_1_20250817172649_twv5o: '/images/anh-thu_0000s_0003_layer-1-20250817172649-twv5o.png',
+  anh_thu_4: '/images/anh-thu-4.png',
   bg1: '/images/bg1.jpeg',
   bg10: '/images/bg10.png',
   bg11: '/images/bg11.png',
@@ -66,13 +62,13 @@ export const imageMap = {
   bg9: '/images/bg9.jpeg',
   cdau_20250824152431_mgs7c: '/images/cdau-20250824152431-mgs7c.png',
   d589e2f7_74c4_4a3c_b8e6_f335adc8f2bb: '/images/d589e2f7-74c4-4a3c-b8e6-f335adc8f2bb.svg',
-  fasda_20250421104930_4ywrk: '/images/fasda-20250421104930-4ywrk.png',
-  fasda_20250421105111_znwlo: '/images/fasda-20250421105111-znwlo.png',
   gif_nhac_be_nau_20250718143617_k_wa3: '/images/gif-nhac-be-nau-20250718143617-k_wa3.gif',
   header1: '/images/header1.jpeg',
   header2: '/images/header2.jpeg',
   ladipage_play: '/images/ladipage-play.svg',
   ldicon_discount_coupon: '/images/ldicon-discount-coupon.svg',
+  letter_1: '/images/letter-1.jpeg',
+  letter_2: '/images/letter-2.jpeg',
   new_ldicon_arrow_left: '/images/new-ldicon-arrow-left.svg',
   untitled_1_20250409032644_v_4bn: '/images/untitled-1-20250409032644-v_4bn.png',
   untitled_1_20250409032644_v_4bn_1: '/images/untitled-1-20250409032644-v_4bn_1.png',
