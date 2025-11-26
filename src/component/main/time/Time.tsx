@@ -88,6 +88,7 @@ const Time = () => {
           trigger: ".hg-letters",
           start: "top 50%",
           toggleActions: "play none none none",
+          markers: true,
         },
       });
 
