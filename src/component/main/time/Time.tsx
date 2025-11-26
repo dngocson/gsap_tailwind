@@ -15,6 +15,7 @@ const Time = () => {
     minutes: 0,
     seconds: 0,
   });
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const prevTimeRef = useRef({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -42,6 +43,43 @@ const Time = () => {
     const interval = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const images = containerRef.current.querySelectorAll("img");
+    if (images.length === 0) {
+      setImagesLoaded(true);
+      return;
+    }
+
+    let loadedCount = 0;
+
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount === images.length) {
+        setImagesLoaded(true);
+      }
+    };
+
+    images.forEach((img) => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener("load", handleImageLoad);
+      }
+    });
+
+    if (loadedCount === images.length) {
+      setImagesLoaded(true);
+    }
+
+    return () => {
+      images.forEach((img) => {
+        img.removeEventListener("load", handleImageLoad);
+      });
+    };
   }, []);
 
   useGSAP(
@@ -77,9 +115,8 @@ const Time = () => {
   const { contextSafe } = useGSAP(
     () => {
       if (!containerRef.current) return;
-      setTimeout(() => {
-        ScrollTrigger.clearScrollMemory("manual");
 
+      if (imagesLoaded) {
         // HG Letters Timeline
         const hgLettersTl = gsap.timeline({
           scrollTrigger: {
@@ -200,9 +237,9 @@ const Time = () => {
           duration: 1,
           ease: "back.out(2)",
         });
-      }, 1000);
+      }
     },
-    { scope: containerRef },
+    { scope: containerRef, dependencies: [imagesLoaded] },
   );
 
   const onLetterImageClickHandler = contextSafe(
