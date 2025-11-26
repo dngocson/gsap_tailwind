@@ -1,5 +1,5 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-11-26T07:25:24.900Z
+// Generated at: 2025-11-26T09:22:55.184Z
 
 export const imageMap = {
   _7u6a5474_20251014203959_o83w5_jpg: '/images/7u6a5474-20251014203959-o83w5.jpg.jpeg',
@@ -8,7 +8,6 @@ export const imageMap = {
   _7u6a5532_20251014203945_eotjz_jpg_1: '/images/7u6a5532-20251014203945-eotjz.jpg_1.jpeg',
   _7u6a5913_20251014203947_fkm4__jpg: '/images/7u6a5913-20251014203947-fkm4_.jpg.jpeg',
   _7u6a5913_20251014203947_fkm4__jpg_1: '/images/7u6a5913-20251014203947-fkm4_.jpg_1.jpeg',
-  _7u6a5950_20251014203452_h5sjn_jpg: '/images/7u6a5950-20251014203452-h5sjn.jpg.jpeg',
   _7u6a5981_20251014203948__vslh_jpg: '/images/7u6a5981-20251014203948-_vslh.jpg.jpeg',
   _7u6a5981_20251014203948__vslh_jpg_1: '/images/7u6a5981-20251014203948-_vslh.jpg_1.jpeg',
   _7u6a6307_20251014203950_iwz7m_jpg: '/images/7u6a6307-20251014203950-iwz7m.jpg.jpeg',
@@ -70,6 +69,7 @@ export const imageMap = {
   letter_1: '/images/letter-1.jpeg',
   letter_2: '/images/letter-2.jpeg',
   new_ldicon_arrow_left: '/images/new-ldicon-arrow-left.svg',
+  seperator: '/images/seperator.jpeg',
   untitled_1_20250409032644_v_4bn: '/images/untitled-1-20250409032644-v_4bn.png',
   untitled_1_20250409032644_v_4bn_1: '/images/untitled-1-20250409032644-v_4bn_1.png',
   untitled_dfww_20250420125807_7viyy: '/images/untitled-dfww-20250420125807-7viyy.png',

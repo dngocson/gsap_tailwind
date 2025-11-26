@@ -1,4 +1,5 @@
 import Header from "./header/Header";
+import Seperator from "./seperator/Seperator";
 import Time from "./time/Time";
 
 const Main = () => {
@@ -6,6 +7,7 @@ const Main = () => {
     <div className="relative">
       <Header />
       <Time />
+      <Seperator />
     </div>
   );
 };

@@ -112,15 +112,15 @@ const Time = () => {
         ease: "back.out(2)",
         scrollTrigger: {
           trigger: ".letter-image-1",
-          start: "top 70%",
+          start: "top 90%",
           toggleActions: "play none none none",
         },
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 20%",
+          trigger: ".countdown",
+          start: "top 80%",
           toggleActions: "play none none none",
         },
       });
@@ -211,7 +211,7 @@ const Time = () => {
         </p>
       </div>
 
-      <div className="z-1 -mt-4 flex items-center gap-2">
+      <div className="countdown z-1 -mt-4 flex items-center gap-2">
         <div className="countdown-container flex flex-col items-center gap-2">
           <div className="time-days time-value font-fontTwo text-3xl">
             {formatTime(timeLeft.days)}
