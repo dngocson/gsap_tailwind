@@ -7,7 +7,7 @@ interface AppState {
 }
 
 const useAppStore = create<AppState>((set) => ({
-  appState: APP_STATE.MAIN,
+  appState: APP_STATE.INTRO,
   setAppState: (appState) => set(() => ({ appState })),
 }));
 

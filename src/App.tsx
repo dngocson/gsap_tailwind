@@ -1,4 +1,5 @@
 import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 import Greeting from "@intro/Greeting";
 import Main from "@main/Main";
 import useAppStore from "@store/appStore";
@@ -14,6 +15,7 @@ import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { SplitText } from "gsap/SplitText";
 import { TextPlugin } from "gsap/TextPlugin";
+import Loader from "./component/loader/Loader";
 
 gsap.registerPlugin(
   useGSAP,
@@ -30,10 +32,13 @@ gsap.registerPlugin(
 
 function App() {
   const appState = useAppStore((state) => state.appState);
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div className="relative h-full min-h-screen w-full transition-colors duration-300">
-      {appState === APP_STATE.INTRO && <Greeting />}
-      {appState === APP_STATE.MAIN && <Main />}
+      {isLoading && <Loader onLoadComplete={() => setIsLoading(false)} />}
+      {!isLoading && appState === APP_STATE.INTRO && <Greeting />}
+      {!isLoading && appState === APP_STATE.MAIN && <Main />}
     </div>
   );
 }

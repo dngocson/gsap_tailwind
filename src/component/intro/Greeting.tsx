@@ -189,7 +189,7 @@ const Greeting = () => {
       onClick={clickLetterHandler}
       className="relative flex h-screen flex-col justify-center"
     >
-      <img src={imageMap.bg1} alt="" />
+      <img src={imageMap.bg1} />
       <div className="relative flex-1">
         <img className="h-full w-full" src={imageMap.bg10} />
         <img className="absolute right-0 bottom-0" src={imageMap.bg11} />
