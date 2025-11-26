@@ -86,7 +86,7 @@ const Time = () => {
         ease: "back.out(2)",
         scrollTrigger: {
           trigger: ".hg-letters",
-          start: "top 80%",
+          start: "top 50%",
           toggleActions: "play none none none",
         },
       });
@@ -98,7 +98,7 @@ const Time = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".intro-text",
-          start: "top 80%",
+          start: "top 50%",
           toggleActions: "play none none none",
         },
       });
@@ -112,7 +112,7 @@ const Time = () => {
         ease: "back.out(2)",
         scrollTrigger: {
           trigger: ".letter-image-1",
-          start: "top 80%",
+          start: "top 70%",
           toggleActions: "play none none none",
         },
       });
@@ -120,7 +120,7 @@ const Time = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 60%",
+          start: "top 20%",
           toggleActions: "play none none none",
         },
       });
@@ -197,11 +197,16 @@ const Time = () => {
       <img src={imageMap.bg5} className="absolute top-0 left-0" />
       <img src={imageMap.bg11} className="absolute right-0 bottom-0" />
       <div className="z-1 flex flex-col text-center">
-        <div className="flex justify-center text-8xl">
-          <p className="hg-letters font-fontThree">H</p>
-          <p className="hg-letters font-fontOne">G</p>
+        <div className="relative flex justify-center text-8xl">
+          <p className="hg-letters font-fontThree absolute left-[47.5%] -translate-x-1/2">
+            H
+          </p>
+          <p className="hg-letters font-fontOne absolute top-[28.5%] left-[52.5%] -translate-x-1/2">
+            G
+          </p>
+          <p className="invisible">HG</p>
         </div>
-        <p className="intro-text font-fontTwo px-20 text-[21px] leading-12 uppercase">
+        <p className="intro-text font-fontTwo px-20 pt-6 text-[21px] leading-12 uppercase">
           We will become husband and wife in
         </p>
       </div>
