@@ -1,4 +1,5 @@
 import Header from "./header/Header";
+import Location from "./location.tsx/Location";
 import Seperator from "./seperator/Seperator";
 import Time from "./time/Time";
 
@@ -8,6 +9,7 @@ const Main = () => {
       <Header />
       <Time />
       <Seperator />
+      <Location />
     </div>
   );
 };

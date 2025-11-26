@@ -15,7 +15,6 @@ const Time = () => {
     minutes: 0,
     seconds: 0,
   });
-  const [imagesLoaded, setImagesLoaded] = useState(false);
   const prevTimeRef = useRef({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -43,43 +42,6 @@ const Time = () => {
     const interval = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const images = containerRef.current.querySelectorAll("img");
-    if (images.length === 0) {
-      setImagesLoaded(true);
-      return;
-    }
-
-    let loadedCount = 0;
-
-    const handleImageLoad = () => {
-      loadedCount++;
-      if (loadedCount === images.length) {
-        setImagesLoaded(true);
-      }
-    };
-
-    images.forEach((img) => {
-      if (img.complete) {
-        loadedCount++;
-      } else {
-        img.addEventListener("load", handleImageLoad);
-      }
-    });
-
-    if (loadedCount === images.length) {
-      setImagesLoaded(true);
-    }
-
-    return () => {
-      images.forEach((img) => {
-        img.removeEventListener("load", handleImageLoad);
-      });
-    };
   }, []);
 
   useGSAP(
@@ -116,130 +78,127 @@ const Time = () => {
     () => {
       if (!containerRef.current) return;
 
-      if (imagesLoaded) {
-        // HG Letters Timeline
-        const hgLettersTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".hg-letters",
-            start: "top 50%",
-            toggleActions: "play none none none",
-          },
-        });
+      // HG Letters Timeline
+      const hgLettersTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hg-letters",
+          start: "top 50%",
+          toggleActions: "play none none none",
+        },
+      });
 
-        hgLettersTl.from(".hg-letters", {
-          opacity: 0,
-          y: -30,
-          rotationX: -90,
-          stagger: 0.15,
-          duration: 1.25,
-          ease: "back.out(2)",
-        });
+      hgLettersTl.from(".hg-letters", {
+        opacity: 0,
+        y: -30,
+        rotationX: -90,
+        stagger: 0.15,
+        duration: 1.25,
+        ease: "back.out(2)",
+      });
 
-        // Intro Text Timeline
-        const introTextTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".intro-text",
-            start: "top 50%",
-            toggleActions: "play none none none",
-          },
-        });
+      // Intro Text Timeline
+      const introTextTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".intro-text",
+          start: "top 50%",
+          toggleActions: "play none none none",
+        },
+      });
 
-        introTextTl.from(".intro-text", {
-          opacity: 0,
-          y: 20,
-          duration: 1,
-          ease: "power3.out",
-        });
+      introTextTl.from(".intro-text", {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        ease: "power3.out",
+      });
 
-        // Countdown Container Timeline
-        const countdownContainerTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".countdown",
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-        });
+      // Countdown Container Timeline
+      const countdownContainerTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".countdown",
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
 
-        countdownContainerTl.from(".countdown-container", {
-          opacity: 0,
-          y: 50,
-          scale: 0.8,
-          stagger: 0.15,
-          duration: 1,
-          ease: "elastic.out(1, 0.5)",
-        });
+      countdownContainerTl.from(".countdown-container", {
+        opacity: 0,
+        y: 50,
+        scale: 0.8,
+        stagger: 0.15,
+        duration: 1,
+        ease: "elastic.out(1, 0.5)",
+      });
 
-        // Time Value Timeline
-        const timeValueTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".time-value",
-            start: "top 60%",
-            toggleActions: "play none none none",
-          },
-        });
+      // Time Value Timeline
+      const timeValueTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".time-value",
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      });
 
-        timeValueTl.from(".time-value", {
-          opacity: 0,
-          rotationX: -360,
-          stagger: 0.12,
-          duration: 1,
-          ease: "power2.out",
-        });
+      timeValueTl.from(".time-value", {
+        opacity: 0,
+        rotationX: -360,
+        stagger: 0.12,
+        duration: 1,
+        ease: "power2.out",
+      });
 
-        // Time Separator Timeline
-        const timeSeparatorTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".time-value",
-            start: "top 60%",
-            toggleActions: "play none none none",
-          },
-        });
+      // Time Separator Timeline
+      const timeSeparatorTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".time-value",
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      });
 
-        timeSeparatorTl.from(".time-separator", {
-          opacity: 0,
-          stagger: 0.12,
-          duration: 0.5,
-          ease: "power3.out",
-        });
+      timeSeparatorTl.from(".time-separator", {
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.5,
+        ease: "power3.out",
+      });
 
-        // Time Label Timeline
-        const timeLabelTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".time-value",
-            start: "top 60%",
-            toggleActions: "play none none none",
-          },
-        });
+      // Time Label Timeline
+      const timeLabelTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".time-value",
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      });
 
-        timeLabelTl.from(".time-label", {
-          opacity: 0,
-          y: -10,
-          stagger: 0.12,
-          duration: 0.6,
-          ease: "power3.out",
-        });
+      timeLabelTl.from(".time-label", {
+        opacity: 0,
+        y: -10,
+        stagger: 0.12,
+        duration: 0.6,
+        ease: "power3.out",
+      });
 
-        // Letter Images Timeline
-        const letterImagesTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".letter-image-1",
-            start: "top 80%",
+      // Letter Images Timeline
+      const letterImagesTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".letter-image-1",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
 
-            toggleActions: "play none none none",
-          },
-        });
-
-        letterImagesTl.from(".letter-image-1, .letter-image-2", {
-          opacity: 0,
-          y: 100,
-          rotation: (i) => (i === 0 ? -15 : 35),
-          stagger: 0.5,
-          duration: 1,
-          ease: "back.out(2)",
-        });
-      }
+      letterImagesTl.from(".letter-image-1, .letter-image-2", {
+        opacity: 0,
+        y: 100,
+        rotation: (i) => (i === 0 ? -15 : 35),
+        stagger: 0.5,
+        duration: 1,
+        ease: "back.out(2)",
+      });
     },
-    { scope: containerRef, dependencies: [imagesLoaded] },
+    { scope: containerRef, dependencies: [] },
   );
 
   const onLetterImageClickHandler = contextSafe(
