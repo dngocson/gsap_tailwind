@@ -1,5 +1,5 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-12-01T16:17:52.253Z
+// Generated at: 2025-12-02T09:39:51.622Z
 
 export const imageMap = {
   _7u6a5474_20251014203959_o83w5_jpg: '/images/7u6a5474-20251014203959-o83w5.jpg.jpeg',

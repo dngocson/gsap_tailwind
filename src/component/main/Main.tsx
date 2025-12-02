@@ -1,3 +1,4 @@
+import BrideAndGroom from "./brideAndGroom/BrideAndGroom";
 import Header from "./header/Header";
 import Location from "./location.tsx/Location";
 import Seperator from "./seperator/Seperator";
@@ -10,6 +11,7 @@ const Main = () => {
       <Time />
       <Seperator />
       <Location />
+      <BrideAndGroom />
     </div>
   );
 };

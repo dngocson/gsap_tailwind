@@ -5,77 +5,107 @@ import { SplitText } from "gsap/all";
 
 const Location = () => {
   useGSAP(() => {
-    const invite = SplitText.create(".invite-text", { type: "words" });
-    const brideAndGroom = SplitText.create(".couple-names", { type: "chars" });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        const invite = SplitText.create(".invite-text", {
+          type: "words",
+          autoSplit: true,
+        });
+        const brideAndGroom = SplitText.create(".couple-names", {
+          type: "chars",
+        });
 
-    // // parents fade in
-    gsap.from(".parents-wrapper", {
-      opacity: 0,
-      y: 40,
-      duration: 1.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".parents-block",
-        start: "top 75%",
-        toggleActions: "play none none none",
-      },
-    });
+        gsap.from(".parents-wrapper", {
+          opacity: 0,
+          y: 40,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".parents-block",
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+        });
 
-    // // invite text words
-    gsap.from(invite.words, {
-      opacity: 0,
-      y: 20,
-      stagger: 0.04,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".invite-text",
-        start: "top 70%",
-        toggleActions: "play none none none",
-      },
-    });
+        gsap.from(invite.words, {
+          opacity: 0,
+          y: 20,
+          stagger: 0.04,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".invite-text",
+            start: "top 70%",
+            toggleActions: "play none none none",
+          },
+        });
 
-    gsap.from(brideAndGroom.chars, {
-      yPercent: "random([-100,100])",
-      rotation: "random([-30,30])",
-      stagger: {
-        amount: 0.5,
-        from: "center",
-      },
-      autoAlpha: 0,
-      scrollTrigger: {
-        trigger: ".name-bride",
-        start: "top 70%",
-        toggleActions: "play none none none",
-      },
-    });
+        gsap.from(brideAndGroom.chars, {
+          yPercent: "random([-100,100])",
+          rotation: "random([-30,30])",
+          stagger: {
+            amount: 0.5,
+            from: "center",
+          },
+          autoAlpha: 0,
+          scrollTrigger: {
+            trigger: ".name-bride",
+            start: "top 50%",
+            toggleActions: "play none none none",
+          },
+        });
 
-    // // time block
-    gsap.from(".time-block", {
-      opacity: 0,
-      scale: 0.8,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".time-block",
-        start: "top 80%",
+        gsap.from(".time-intro", {
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".time-intro",
+            start: "top 60%",
+            toggleActions: "play none none none",
+          },
+        });
 
-        toggleActions: "play none none none",
-      },
-    });
+        gsap.from(".time-block", {
+          opacity: 0,
+          duration: 1,
+          ease: "power2.out",
+          x: (index) => {
+            switch (index) {
+              case 0:
+                return 0;
+              case 1:
+                return 75;
+              case 2:
+                return -70;
+              default:
+                return 0;
+            }
+          },
 
-    // location block
-    gsap.from(".location-info", {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".location-info",
-        start: "top 75%",
-        toggleActions: "play none none none",
-      },
-    });
+          scrollTrigger: {
+            trigger: ".time-block",
+            markers: true,
+            start: "top 50%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        gsap.from(".location-info", {
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".location-info",
+            start: "top 50%",
+            markers: true,
+            toggleActions: "play none none none",
+          },
+        });
+      });
+    }
   });
 
   return (
@@ -83,11 +113,7 @@ const Location = () => {
       <img className="location-bg-1 absolute top-0 z-2" src={imageMap.bg1} />
       <img
         className="location-bg-10 absolute top-0 h-full"
-        src={imageMap.bg10}
-      />
-      <img
-        className="location-bg-11 absolute right-0 bottom-0"
-        src={imageMap.bg11}
+        src={imageMap.bg3}
       />
 
       <div className="parents-block z-10 flex w-full flex-col items-center gap-8">
@@ -121,8 +147,8 @@ const Location = () => {
       <p className="time-intro z-10">Được tổ chức vào lúc</p>
 
       <div className="time-block font-fontTwo z-10 flex flex-col items-center border-t-2 border-b-2 border-[#928362] p-2 text-[30px] leading-[1.6] uppercase">
-        <p>11:00 - chủ nhật</p>
-        <p>16.11.2025</p>
+        <p className="time-block">11:00 - chủ nhật</p>
+        <p className="time-block">16.11.2025</p>
       </div>
 
       <div className="location-info z-10 flex flex-col items-center gap-1 text-center">
@@ -137,6 +163,10 @@ const Location = () => {
           Chỉ đường
         </p>
       </div>
+      <img
+        src={imageMap.bg6}
+        className="absolute bottom-0 left-0 z-1 translate-y-1/2"
+      />
     </div>
   );
 };

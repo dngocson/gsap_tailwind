@@ -191,7 +191,7 @@ const Time = () => {
 
       letterImagesTl.from(".letter-image-1, .letter-image-2", {
         opacity: 0,
-        y: 100,
+        y: 20,
         rotation: (i) => (i === 0 ? -15 : 35),
         stagger: 0.5,
         duration: 1,
@@ -245,43 +245,43 @@ const Time = () => {
 
       <div className="countdown z-1 -mt-4 flex items-center gap-2">
         <div className="countdown-container flex flex-col items-center gap-2">
-          <div className="time-days time-value font-fontTwo text-3xl">
+          <div className="time-days time-value font-fontThree text-3xl">
             {formatTime(timeLeft.days)}
           </div>
-          <div className="time-label font-fontTwo text-sm tracking-wider uppercase">
+          <div className="time-label font-fontThree text-sm tracking-wider uppercase">
             Days
           </div>
         </div>
-        <span className="time-separator font-fontTwo self-start text-3xl">
+        <span className="time-separator font-fontThree self-start text-3xl">
           :
         </span>
         <div className="countdown-container flex flex-col items-center gap-2">
-          <div className="time-hours time-value font-fontTwo text-3xl">
+          <div className="time-hours time-value font-fontThree text-3xl">
             {formatTime(timeLeft.hours)}
           </div>
-          <div className="time-label font-fontTwo text-sm tracking-wider uppercase">
+          <div className="time-label font-fontThree text-sm tracking-wider uppercase">
             Hours
           </div>
         </div>
-        <span className="time-separator font-fontTwo self-start text-3xl">
+        <span className="time-separator font-fontThree self-start text-3xl">
           :
         </span>
         <div className="countdown-container flex flex-col items-center gap-2">
-          <div className="time-minutes time-value font-fontTwo text-3xl">
+          <div className="time-minutes time-value font-fontThree text-3xl">
             {formatTime(timeLeft.minutes)}
           </div>
-          <div className="time-label font-fontTwo text-sm tracking-wider uppercase">
+          <div className="time-label font-fontThree text-sm tracking-wider uppercase">
             Minutes
           </div>
         </div>
-        <span className="time-separator font-fontTwo self-start text-3xl">
+        <span className="time-separator font-fontThree self-start text-3xl">
           :
         </span>
         <div className="countdown-container flex flex-col items-center gap-2">
-          <div className="time-seconds time-value seconds-value font-fontTwo text-3xl">
+          <div className="time-seconds time-value seconds-value font-fontThree text-3xl">
             {formatTime(timeLeft.seconds)}
           </div>
-          <div className="time-label font-fontTwo text-sm tracking-wider uppercase">
+          <div className="time-label font-fontThree text-sm tracking-wider uppercase">
             Seconds
           </div>
         </div>
