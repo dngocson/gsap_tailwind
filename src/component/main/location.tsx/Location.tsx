@@ -86,7 +86,6 @@ const Location = () => {
 
           scrollTrigger: {
             trigger: ".time-block",
-            markers: true,
             start: "top 50%",
             toggleActions: "play none none none",
           },
@@ -100,7 +99,6 @@ const Location = () => {
           scrollTrigger: {
             trigger: ".location-info",
             start: "top 50%",
-            markers: true,
             toggleActions: "play none none none",
           },
         });

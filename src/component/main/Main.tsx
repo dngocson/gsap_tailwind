@@ -1,3 +1,4 @@
+import Album from "./album/Album";
 import BrideAndGroom from "./brideAndGroom/BrideAndGroom";
 import Header from "./header/Header";
 import Location from "./location.tsx/Location";
@@ -12,6 +13,7 @@ const Main = () => {
       <Seperator />
       <Location />
       <BrideAndGroom />
+      <Album />
     </div>
   );
 };

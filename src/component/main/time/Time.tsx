@@ -194,7 +194,7 @@ const Time = () => {
         y: 20,
         rotation: (i) => (i === 0 ? -15 : 35),
         stagger: 0.5,
-        duration: 1,
+        duration: 1.25,
         ease: "back.out(2)",
       });
     },
