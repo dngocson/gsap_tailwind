@@ -3,7 +3,7 @@ import LoopVideoPictures from "../brideAndGroom/VideoPictures";
 
 const Album = () => {
   return (
-    <div className="location-section relative flex h-screen flex-col gap-7 text-center text-[#928362]">
+    <div className="location-section relative flex h-screen flex-col gap-7 overflow-hidden text-center text-[#928362]">
       <img
         className="location-bg-10 absolute top-0 h-full"
         src={imageMap.bg3}
@@ -11,7 +11,7 @@ const Album = () => {
       <LoopVideoPictures />
       <div className="z-10">
         <div className="grid grid-cols-3 gap-5 text-4xl">
-          <div className="flex flex-col">
+          <div className="flex flex-col pl-3">
             <p className="font-fontFour text-7xl">The</p>
             <p>Album</p>
           </div>
