@@ -238,12 +238,12 @@ const Time = () => {
           </p>
           <p className="invisible">HG</p>
         </div>
-        <p className="intro-text font-fontTwo px-20 pt-6 text-[21px] leading-12 uppercase">
+        <p className="intro-text font-fontTwo realme-neo2:px-20 px-10 pt-6 text-[21px] leading-12 uppercase">
           We will become husband and wife in
         </p>
       </div>
 
-      <div className="countdown z-1 -mt-4 flex items-center gap-2">
+      <div className="countdown realme-neo2:gap-2 z-1 -mt-4 flex items-center gap-1">
         <div className="countdown-container flex flex-col items-center gap-2">
           <div className="time-days time-value font-fontThree text-3xl">
             {formatTime(timeLeft.days)}

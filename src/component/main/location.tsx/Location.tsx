@@ -107,7 +107,7 @@ const Location = () => {
   });
 
   return (
-    <div className="location-section relative flex h-screen flex-col items-center justify-center gap-7 text-center text-[#928362]">
+    <div className="location-section relative flex flex-col items-center justify-center gap-7 text-center text-[#928362]">
       <img className="location-bg-1 absolute top-0 z-2" src={imageMap.bg1} />
       <img
         className="location-bg-10 absolute top-0 h-full"
@@ -131,15 +131,17 @@ const Location = () => {
           </div>
         </div>
 
-        <h3 className="invite-text leading-7 uppercase">
+        <h3 className="invite-text realme-neo2:px-0 px-2 leading-7 uppercase">
           trân trọng mời tham dự <br /> lễ thành hôn của hai con chúng tôi
         </h3>
       </div>
 
       <div className="couple-names z-10 flex flex-col gap-2">
-        <p className="name-bride text-5xl">THÙY GIANG</p>
-        <p className="name-and font-fontFour text-6xl">and</p>
-        <p className="name-groom text-5xl">THANH HOÀNG</p>
+        <p className="name-bride realme-neo2:text-5xl text-4xl">THÙY GIANG</p>
+        <p className="name-and font-fontFour realme-neo2:text-6xl text-5xl">
+          and
+        </p>
+        <p className="name-groom realme-neo2:text-5xl text-4xl">THANH HOÀNG</p>
       </div>
 
       <p className="time-intro z-10">Được tổ chức vào lúc</p>

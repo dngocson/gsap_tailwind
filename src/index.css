@@ -32,7 +32,7 @@
 }
 
 @theme {
-  /* Custom breakpoints for iPhone models */
+  --breakpoint-realme-neo2: 325px; /* Realme Neo 2 */
   --breakpoint-ip-se: 375px; /* iPhone SE (2020, 2022), 13 Mini */
   --breakpoint-ip13: 390px; /* iPhone 13, 13 Pro */
   --breakpoint-ip13pm: 428px; /* iPhone 13 Pro Max */

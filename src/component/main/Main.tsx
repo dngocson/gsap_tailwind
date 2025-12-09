@@ -13,7 +13,7 @@ const Main = () => {
       <Seperator />
       <Location />
       <BrideAndGroom />
-      <Album />
+      {/* <Album /> */}
     </div>
   );
 };
