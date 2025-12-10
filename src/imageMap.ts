@@ -1,32 +1,7 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-12-09T12:16:49.000Z
+// Generated at: 2025-12-10T13:53:02.110Z
 
 export const imageMap = {
-  _7u6a5474_20251014203959_o83w5_jpg: '/images/7u6a5474-20251014203959-o83w5.jpg.jpeg',
-  _7u6a5474_20251014203959_o83w5_jpg_1: '/images/7u6a5474-20251014203959-o83w5.jpg_1.jpeg',
-  _7u6a5532_20251014203945_eotjz_jpg: '/images/7u6a5532-20251014203945-eotjz.jpg.jpeg',
-  _7u6a5532_20251014203945_eotjz_jpg_1: '/images/7u6a5532-20251014203945-eotjz.jpg_1.jpeg',
-  _7u6a5913_20251014203947_fkm4__jpg: '/images/7u6a5913-20251014203947-fkm4_.jpg.jpeg',
-  _7u6a5913_20251014203947_fkm4__jpg_1: '/images/7u6a5913-20251014203947-fkm4_.jpg_1.jpeg',
-  _7u6a5981_20251014203948__vslh_jpg: '/images/7u6a5981-20251014203948-_vslh.jpg.jpeg',
-  _7u6a5981_20251014203948__vslh_jpg_1: '/images/7u6a5981-20251014203948-_vslh.jpg_1.jpeg',
-  _7u6a6307_20251014203950_iwz7m_jpg: '/images/7u6a6307-20251014203950-iwz7m.jpg.jpeg',
-  _7u6a6307_20251014203950_iwz7m_jpg_1: '/images/7u6a6307-20251014203950-iwz7m.jpg_1.jpeg',
-  _7u6a6469_20251014203951_5wq5f_jpg_1: '/images/7u6a6469-20251014203951-5wq5f.jpg_1.jpeg',
-  _7u6a6479_20251014203953_ivat7_jpg: '/images/7u6a6479-20251014203953-ivat7.jpg.jpeg',
-  _7u6a6797_20251014203955_xvsur_jpg: '/images/7u6a6797-20251014203955-xvsur.jpg.jpeg',
-  _7u6a6797_20251014203955_xvsur_jpg_1: '/images/7u6a6797-20251014203955-xvsur.jpg_1.jpeg',
-  _7u6a6830_20251014203956_jrbh9_jpg: '/images/7u6a6830-20251014203956-jrbh9.jpg.jpeg',
-  _7u6a6830_20251014203956_jrbh9_jpg_1: '/images/7u6a6830-20251014203956-jrbh9.jpg_1.jpeg',
-  _7u6a7039_20251014204044_bmjts_jpg: '/images/7u6a7039-20251014204044-bmjts.jpg.jpeg',
-  _7u6a7039_20251014204044_bmjts_jpg_1: '/images/7u6a7039-20251014204044-bmjts.jpg_1.jpeg',
-  _7u6a8330_20251014204106_pa4yv_jpg: '/images/7u6a8330-20251014204106-pa4yv.jpg.jpeg',
-  _7u6a8330_20251014204106_pa4yv_jpg_1: '/images/7u6a8330-20251014204106-pa4yv.jpg_1.jpeg',
-  _7u6a8515_20251014204107_egpdv_jpg: '/images/7u6a8515-20251014204107-egpdv.jpg.jpeg',
-  _7u6a8571_20251014204108_f8m4a_jpg: '/images/7u6a8571-20251014204108-f8m4a.jpg.jpeg',
-  _7u6a8571_20251014204108_f8m4a_jpg_1: '/images/7u6a8571-20251014204108-f8m4a.jpg_1.jpeg',
-  _7u6a8593_20251014204108_xnxx5_jpg: '/images/7u6a8593-20251014204108-xnxx5.jpg.jpeg',
-  _7u6a8593_20251014204108_xnxx5_jpg_1: '/images/7u6a8593-20251014204108-xnxx5.jpg_1.jpeg',
   _8c61a45d_c984_4c77_b6c5_644ec5162baa: '/images/8c61a45d-c984-4c77-b6c5-644ec5162baa.svg',
   a4c0e303_238e_487c_80fa_656d82c8a4ca: '/images/a4c0e303-238e-487c-80fa-656d82c8a4ca.svg',
   album_1: '/images/album_1.jpeg',
@@ -48,6 +23,21 @@ export const imageMap = {
   bg8: '/images/bg8.jpeg',
   bg9: '/images/bg9.jpeg',
   bride: '/images/bride.jpeg',
+  carousel_1: '/images/carousel_1.jpeg',
+  carousel_10: '/images/carousel_10.jpeg',
+  carousel_11: '/images/carousel_11.jpeg',
+  carousel_12: '/images/carousel_12.jpeg',
+  carousel_13: '/images/carousel_13.jpeg',
+  carousel_14: '/images/carousel_14.jpeg',
+  carousel_15: '/images/carousel_15.jpeg',
+  carousel_2: '/images/carousel_2.jpeg',
+  carousel_3: '/images/carousel_3.jpeg',
+  carousel_4: '/images/carousel_4.jpeg',
+  carousel_5: '/images/carousel_5.jpeg',
+  carousel_6: '/images/carousel_6.jpeg',
+  carousel_7: '/images/carousel_7.jpeg',
+  carousel_8: '/images/carousel_8.jpeg',
+  carousel_9: '/images/carousel_9.jpeg',
   cdau_20250824152431_mgs7c: '/images/cdau-20250824152431-mgs7c.png',
   d589e2f7_74c4_4a3c_b8e6_f335adc8f2bb: '/images/d589e2f7-74c4-4a3c-b8e6-f335adc8f2bb.svg',
   gif_nhac_be_nau_20250718143617_k_wa3: '/images/gif-nhac-be-nau-20250718143617-k_wa3.gif',
@@ -70,11 +60,9 @@ export const imageMap = {
   new_ldicon_arrow_left: '/images/new-ldicon-arrow-left.svg',
   seperator: '/images/seperator.jpeg',
   untitled_1_20250409032644_v_4bn: '/images/untitled-1-20250409032644-v_4bn.png',
-  untitled_1_20250409032644_v_4bn_1: '/images/untitled-1-20250409032644-v_4bn_1.png',
   untitled_dfww_20250420125807_7viyy: '/images/untitled-dfww-20250420125807-7viyy.png',
   videoFrame: '/images/videoFrame.png',
-  vite: '/images/vite.svg',
-  z6445581576028_817a40537c44b7dbe0cb53e8b7670c8d_20250420114104_tolbj_20251002161223_xwod2_jpg: '/images/z6445581576028_817a40537c44b7dbe0cb53e8b7670c8d-20250420114104-tolbj-20251002161223-xwod2.jpg.jpeg'
+  vite: '/images/vite.svg'
 } as const;
 
 export type ImageKey = keyof typeof imageMap;

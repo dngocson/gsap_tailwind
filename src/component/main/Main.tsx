@@ -1,19 +1,17 @@
 import Album from "./album/Album";
 import BrideAndGroom from "./brideAndGroom/BrideAndGroom";
-import Header from "./header/Header";
-import Location from "./location.tsx/Location";
-import Seperator from "./seperator/Seperator";
-import Time from "./time/Time";
+import Carousel from "./carousel/Carousel";
 
 const Main = () => {
   return (
     <div className="relative">
-      <Header />
+      {/* <Header />
       <Time />
       <Seperator />
-      <Location />
+      <Location /> */}
       <BrideAndGroom />
-      {/* <Album /> */}
+      <Album />
+      <Carousel />
     </div>
   );
 };

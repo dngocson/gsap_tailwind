@@ -107,7 +107,7 @@ const Location = () => {
   });
 
   return (
-    <div className="location-section relative flex flex-col items-center justify-center gap-7 text-center text-[#928362]">
+    <div className="location-section realme-neo2:pb-0 relative flex min-h-[75vh] flex-col items-center justify-center gap-7 pb-6 text-center text-[#928362]">
       <img className="location-bg-1 absolute top-0 z-2" src={imageMap.bg1} />
       <img
         className="location-bg-10 absolute top-0 h-full"
