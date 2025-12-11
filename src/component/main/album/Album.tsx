@@ -77,7 +77,7 @@ const Album = () => {
   return (
     <div
       ref={containerRef}
-      className="location-section relative flex min-h-screen flex-col gap-7 overflow-hidden text-center text-[#928362]"
+      className="location-section ip16:pb-24 relative flex flex-col gap-7 overflow-hidden pb-12 text-center text-[#928362]"
     >
       <img
         className="location-bg-10 absolute top-0 h-full"
