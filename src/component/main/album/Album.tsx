@@ -77,7 +77,7 @@ const Album = () => {
   return (
     <div
       ref={containerRef}
-      className="location-section ip16:pb-24 relative flex flex-col gap-7 overflow-hidden pb-12 text-center text-[#928362]"
+      className="location-section ip16:pb-24 realme-neo2:pb-12 relative flex flex-col gap-7 overflow-hidden pb-24 text-center text-[#928362]"
     >
       <img
         className="location-bg-10 absolute top-0 h-full"
@@ -92,7 +92,23 @@ const Album = () => {
               <p>Album</p>
             </div>
             <div className="relative col-span-2">
-              <div className="album-image-1 grid-span-2 realme-neo2:h-[250px] realme-neo2:w-[250px] realme-neo2:p-3 absolute -top-10 -right-5 mx-auto h-[200px] w-[200px] rotate-15 overflow-hidden border border-[rgb(146,131,98,.25)] bg-white p-2">
+              <div
+                className="album-image-1 grid-span-2 realme-neo2:h-[250px] realme-neo2:w-[250px] realme-neo2:p-3 absolute -top-10 -right-5 mx-auto h-[200px] w-[200px] rotate-15 overflow-hidden border border-[rgb(146,131,98,.25)] bg-white p-2"
+                onMouseEnter={(e) => {
+                  gsap.to(e.currentTarget, {
+                    rotation: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                  });
+                }}
+                onMouseLeave={(e) => {
+                  gsap.to(e.currentTarget, {
+                    rotation: 15,
+                    duration: 0.5,
+                    ease: "power2.out",
+                  });
+                }}
+              >
                 <img
                   className="h-full w-full border border-[rgb(146,131,98,.25)] bg-white object-cover"
                   src={imageMap.album_1}
@@ -106,11 +122,27 @@ const Album = () => {
         <div className="z-9">
           <div className="realme-neo2:text-4xl ext-3xl grid grid-cols-2">
             <div className="relative">
-              <div className="album-image-2 grid-span-2 realme-neo2:h-[200px] realme-neo2:w-[200px] realme-neo2:p-3 absolute -top-10 -right-5 mx-auto h-[180px] w-[180px] -rotate-7 overflow-hidden border border-[rgb(146,131,98,.25)] bg-white p-2">
+              <div
+                className="album-image-2 grid-span-2 realme-neo2:h-[200px] realme-neo2:w-[200px] realme-neo2:p-3 absolute -top-10 -right-5 mx-auto h-[180px] w-[180px] -rotate-7 overflow-hidden border border-[rgb(146,131,98,.25)] bg-white p-2"
+                onMouseEnter={(e) => {
+                  gsap.to(e.currentTarget, {
+                    rotation: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                  });
+                }}
+                onMouseLeave={(e) => {
+                  gsap.to(e.currentTarget, {
+                    rotation: -7,
+                    duration: 0.5,
+                    ease: "power2.out",
+                  });
+                }}
+              >
                 <img
                   className="h-full w-full border border-[rgb(146,131,98,.25)] bg-white object-cover"
-                  src={imageMap.album_1}
-                  alt="album-1"
+                  src={imageMap.album_2}
+                  alt="album-2"
                 />
               </div>
             </div>

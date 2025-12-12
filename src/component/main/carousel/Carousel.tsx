@@ -1,9 +1,12 @@
 import { imageMap } from "@/imageMap";
-import useEmblaCarousel from "embla-carousel-react";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+
 const images = [
   imageMap.carousel_1,
   imageMap.carousel_2,
@@ -25,8 +28,10 @@ const images = [
 const Carousel = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [modalImage, setModalImage] = useState<string | null>(null);
+  const modalContainer = document.getElementById("modal_container");
   const carouselRef = useRef<HTMLDivElement>(null);
-  const modelRef = useRef<HTMLDialogElement>(null);
+  const modalContentRef = useRef<HTMLDivElement>(null);
+  const navigationDirection = useRef<"left" | "right" | null>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -89,6 +94,75 @@ const Carousel = () => {
     }
   }, [selectedIndex]);
 
+  useGSAP(() => {
+    if (modalContentRef.current && modalImage) {
+      const direction = navigationDirection.current;
+
+      if (direction === "left") {
+        gsap.fromTo(
+          modalContentRef.current,
+          {
+            opacity: 0.5,
+            x: -150,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+        );
+      } else if (direction === "right") {
+        gsap.fromTo(
+          modalContentRef.current,
+          {
+            opacity: 0.5,
+            x: 150,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+        );
+      } else {
+        gsap.fromTo(
+          modalContentRef.current,
+          {
+            opacity: 0.7,
+            scale: 0.7,
+            y: 15,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+        );
+      }
+
+      navigationDirection.current = null;
+    }
+  }, [modalImage]);
+
+  const closeModalWithAnimation = useCallback(() => {
+    if (modalContentRef.current) {
+      gsap.to(modalContentRef.current, {
+        opacity: 0.75,
+        scale: 0.8,
+        y: 20,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => setModalImage(null),
+      });
+    } else {
+      setModalImage(null);
+    }
+  }, []);
+
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -103,15 +177,64 @@ const Carousel = () => {
     });
   }, [emblaApi, emblaThumbsApi]);
 
+  useEffect(() => {
+    if (!carouselRef.current) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        scrollPrev();
+        emblaApi?.plugins()?.autoplay?.reset();
+        navigationDirection.current = "left";
+        setModalImage(
+          images[(selectedIndex - 1 + images.length) % images.length],
+        );
+      } else if (e.key === "ArrowRight") {
+        scrollNext();
+        emblaApi?.plugins()?.autoplay?.reset();
+        navigationDirection.current = "right";
+        setModalImage(images[(selectedIndex + 1) % images.length]);
+      } else if (e.key === "ArrowUp") {
+        setModalImage(selectedIndex !== null ? images[selectedIndex] : null);
+      } else if ((e.key === "Escape" || e.key === "ArrowDown") && modalImage) {
+        closeModalWithAnimation();
+      }
+    };
+
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: carouselRef.current,
+      start: "top bottom",
+      end: "bottom top",
+      onEnter: () => {
+        window.addEventListener("keydown", handleKeyDown);
+      },
+      onEnterBack: () => {
+        window.addEventListener("keydown", handleKeyDown);
+      },
+      onLeave: () => {
+        window.removeEventListener("keydown", handleKeyDown);
+      },
+      onLeaveBack: () => {
+        window.removeEventListener("keydown", handleKeyDown);
+      },
+    });
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      scrollTrigger.kill();
+    };
+  }, [
+    scrollPrev,
+    scrollNext,
+    emblaApi,
+    selectedIndex,
+    modalImage,
+    closeModalWithAnimation,
+  ]);
+
   return (
     <div>
-      <dialog ref={modelRef} className="backdrop:bg-black/50">
-        <div className="flex h-full w-full items-center justify-center">
-          <p>THIS SHOULD BE ON THE CENTER</p>
-        </div>
-      </dialog>
-
       <div className="relative z-50 mx-auto w-full max-w-4xl" ref={carouselRef}>
+        {/* ScrollTrigger will monitor this div */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {images.map((image, index) => (
@@ -119,7 +242,6 @@ const Carousel = () => {
                 <div className="relative overflow-hidden border-2 border-[rgb(146,131,98,.25)] bg-white shadow-lg">
                   <img
                     onClick={() => {
-                      modelRef.current?.showModal();
                       setModalImage(image);
                     }}
                     src={image}
@@ -194,6 +316,44 @@ const Carousel = () => {
           ))}
         </div>
       </div>
+
+      {modalImage &&
+        modalContainer &&
+        createPortal(
+          <div
+            className="pointer-events-auto fixed inset-0 flex h-full w-full items-center justify-center bg-black/70"
+            onClick={closeModalWithAnimation}
+          >
+            <div ref={modalContentRef} className="relative max-w-[85%]">
+              <img
+                src={modalImage}
+                className="max-h-full object-contain"
+                alt="displayed modal image"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <button
+                onClick={closeModalWithAnimation}
+                className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white transition-colors hover:bg-white/30"
+                aria-label="Close modal"
+              >
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>,
+          modalContainer,
+        )}
     </div>
   );
 };
