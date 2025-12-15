@@ -232,7 +232,7 @@ const Carousel = () => {
   ]);
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${imageMap.bg10})` }}>
       <div className="relative z-50 mx-auto w-full max-w-4xl" ref={carouselRef}>
         {/* ScrollTrigger will monitor this div */}
         <div className="overflow-hidden" ref={emblaRef}>
@@ -294,7 +294,7 @@ const Carousel = () => {
           </svg>
         </button>
       </div>
-      <div className="my-4 overflow-hidden" ref={emblaThumbsRef}>
+      <div className="overflow-hidden py-4" ref={emblaThumbsRef}>
         <div className="flex space-x-2">
           {images.map((image, index) => (
             <div
@@ -324,16 +324,16 @@ const Carousel = () => {
             className="pointer-events-auto fixed inset-0 flex h-full w-full items-center justify-center bg-black/70"
             onClick={closeModalWithAnimation}
           >
-            <div ref={modalContentRef} className="relative max-w-[85%]">
+            <div ref={modalContentRef} className="relative md:max-w-[85%]">
               <img
                 src={modalImage}
-                className="max-h-full object-contain"
+                className="aspect-auto w-full object-contain md:max-h-[90dvh]"
                 alt="displayed modal image"
                 onClick={(e) => e.stopPropagation()}
               />
               <button
                 onClick={closeModalWithAnimation}
-                className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white transition-colors hover:bg-white/30"
+                className="absolute top-0 right-0 rounded-full p-2 text-red-600 transition-colors hover:bg-white/70 md:translate-x-1/2 md:-translate-y-1/2 md:bg-white/40"
                 aria-label="Close modal"
               >
                 <svg
