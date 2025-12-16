@@ -11,6 +11,7 @@ const Header = () => {
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.3 });
+    window.scrollTo(0, 0);
 
     tl.fromTo(
       titleRef.current,
