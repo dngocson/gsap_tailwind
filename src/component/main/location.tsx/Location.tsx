@@ -102,6 +102,27 @@ const Location = () => {
             toggleActions: "play none none none",
           },
         });
+
+        gsap.fromTo(
+          ".location-direction",
+          {
+            scale: 1,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1.15,
+            duration: 1,
+            yoyo: true,
+            repeat: -1,
+            ease: "linear",
+            scrollTrigger: {
+              trigger: ".location-direction",
+              start: "top 60%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
       });
     }
   });
@@ -159,9 +180,20 @@ const Location = () => {
         <p className="location-address font-fontTwo italic">
           04 Kim Long, Phường Kim Long, Thành phố Huế
         </p>
-        <p className="location-direction font-fontTwo pt-4 text-2xl uppercase">
+        <a
+          target="_blank"
+          href="https://www.google.com/maps/dir//82+Th%C3%A2n+V%C4%83n+Nhi%E1%BA%BFp,+An+Ph%C3%BA,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7594064,106.7165612,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31752676039207c3:0xa49becb0680b129b!2m2!1d106.7536237!2d10.7864477?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+          className="location-direction font-fontTwo flex items-center gap-2 pt-4 text-base uppercase"
+        >
+          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fillRule="evenodd"
+              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+              clipRule="evenodd"
+            />
+          </svg>
           Chỉ đường
-        </p>
+        </a>
       </div>
       <img
         src={imageMap.bg6}

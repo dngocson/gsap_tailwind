@@ -15,7 +15,6 @@ const Time = () => {
     minutes: 0,
     seconds: 0,
   });
-  const prevTimeRef = useRef({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const targetDate = new Date();
@@ -43,36 +42,6 @@ const Time = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  useGSAP(
-    () => {
-      const animateFlip = (key: keyof typeof timeLeft) => {
-        if (
-          prevTimeRef.current[key] !== timeLeft[key] &&
-          prevTimeRef.current[key] !== 0
-        ) {
-          const selector = `.time-${key}`;
-          const tl = gsap.timeline();
-
-          tl.to(selector, {
-            rotationX: 90,
-            duration: 0.2,
-            ease: "power2.in",
-          }).to(selector, {
-            rotationX: 0,
-            duration: 0.2,
-            ease: "power2.out",
-          });
-        }
-      };
-
-      (Object.keys(timeLeft) as Array<keyof typeof timeLeft>).forEach(
-        animateFlip,
-      );
-      prevTimeRef.current = { ...timeLeft };
-    },
-    { dependencies: [timeLeft], scope: containerRef },
-  );
 
   const { contextSafe } = useGSAP(
     () => {

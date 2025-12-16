@@ -3,7 +3,6 @@
 import { imageMap } from "@/imageMap";
 import useAppStore from "@/store/appStore";
 import { APP_STATE } from "@/utils/config";
-import { getInnerWidthAndHeight } from "@/utils/util";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
@@ -128,58 +127,7 @@ const Greeting = () => {
     if (isClicked.current || !allowToClick.current) return;
     isClicked.current = true;
 
-    const pathElement = document.getElementById("letterIconPath");
-    const svgElement = document.getElementById("letterIconSvg");
-    if (!pathElement || !svgElement) return;
-
-    const tl = gsap.timeline();
-    gsap.killTweensOf(svgElement);
-
-    gsap.set(svgElement, { transformOrigin: "50% 50%", opacity: 0.5 });
-
-    tl.to(svgElement, {
-      scale: 1.5,
-      rotate: 15,
-      opacity: 0.5,
-      duration: 0.5,
-      ease: "power2.inOut",
-      color: shapes[1].color,
-      fill: shapes[1].fill,
-    });
-
-    tl.to(
-      pathElement,
-      {
-        morphSVG: { shape: shapes[1].path, shapeIndex: 1 },
-        duration: 1,
-        ease: "power2.inOut",
-        attr: {
-          fill: shapes[1].fill,
-          stroke: shapes[1].stroke,
-        },
-      },
-      "<",
-    );
-    const moveY = getInnerWidthAndHeight().height * 0.35;
-    const moveX = getInnerWidthAndHeight().width * 0.1;
-    tl.to(
-      svgElement,
-      {
-        scale: 8.25,
-        opacity: 0.4,
-        duration: 2.5,
-        y: -moveY,
-        x: -moveX,
-        ease: "power2.inOut",
-        filter: "drop-shadow(0 0 20px rgba(255, 0, 0, 0.35))",
-        onComplete: () => {
-          setTimeout(() => {
-            setAppState(APP_STATE.MAIN);
-          }, 500);
-        },
-      },
-      "-=0.4",
-    );
+    setAppState(APP_STATE.MAIN);
   });
 
   const setAppState = useAppStore((store) => store.setAppState);

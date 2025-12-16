@@ -10,12 +10,12 @@ import Time from "./time/Time";
 const Main = () => {
   return (
     <div className="relative">
-      {/* <Header />
+      <Header />
       <Time />
       <Seperator />
       <Location />
       <BrideAndGroom />
-      <Album /> */}
+      <Album />
       <Carousel />
       <Booking />
     </div>
