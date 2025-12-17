@@ -20,7 +20,7 @@ const Loader = ({ onLoadComplete }: LoaderProps) => {
       if (loadedCount === images.length) {
         setTimeout(() => {
           onLoadComplete();
-        }, 500); // Small delay for smooth transition
+        }, 500);
       }
     };
 

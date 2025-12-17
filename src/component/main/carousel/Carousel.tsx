@@ -42,7 +42,7 @@ const Carousel = () => {
     [
       Autoplay({
         playOnInit: true,
-        delay: 2000,
+        delay: 3000,
         stopOnMouseEnter: true,
         stopOnInteraction: false,
       }),
@@ -234,7 +234,6 @@ const Carousel = () => {
   return (
     <div style={{ backgroundImage: `url(${imageMap.bg10})` }}>
       <div className="relative z-50 mx-auto w-full max-w-4xl" ref={carouselRef}>
-        {/* ScrollTrigger will monitor this div */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {images.map((image, index) => (
@@ -294,12 +293,21 @@ const Carousel = () => {
           </svg>
         </button>
       </div>
-      <div className="overflow-hidden py-4" ref={emblaThumbsRef}>
-        <div className="flex space-x-2">
+      <div
+        className="overflow-hidden py-4"
+        ref={emblaThumbsRef}
+        onMouseEnter={() => {
+          emblaApi?.plugins().autoplay.stop();
+        }}
+        onMouseLeave={() => {
+          emblaApi?.plugins().autoplay.play();
+        }}
+      >
+        <div className="flex">
           {images.map((image, index) => (
             <div
               key={index}
-              className={`min-w-0 flex-[0_0_25%] cursor-pointer transition-opacity duration-200 ${
+              className={`mr-2 min-w-0 flex-[0_0_25%] cursor-pointer transition-opacity duration-200 ${
                 index === selectedIndex ? "opacity-100" : "opacity-50"
               }`}
               onClick={() => {

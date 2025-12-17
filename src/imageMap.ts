@@ -1,5 +1,5 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-12-17T09:03:36.587Z
+// Generated at: 2025-12-17T09:11:22.282Z
 
 export const imageMap = {
   album_1: '/images/album_1.jpeg',
