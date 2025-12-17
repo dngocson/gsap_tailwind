@@ -1,19 +1,16 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-12-17T04:55:59.168Z
+// Generated at: 2025-12-17T09:03:36.587Z
 
 export const imageMap = {
-  _8c61a45d_c984_4c77_b6c5_644ec5162baa: '/images/8c61a45d-c984-4c77-b6c5-644ec5162baa.svg',
-  a4c0e303_238e_487c_80fa_656d82c8a4ca: '/images/a4c0e303-238e-487c-80fa-656d82c8a4ca.svg',
   album_1: '/images/album_1.jpeg',
   album_2: '/images/album_2.jpeg',
-  anh_thu_1: '/images/anh-thu-1.png',
-  anh_thu_2: '/images/anh-thu-2.png',
-  anh_thu_3: '/images/anh-thu-3.png',
-  anh_thu_4: '/images/anh-thu-4.png',
+  anh_thu_1: '/images/anh-thu-1.webp',
+  anh_thu_2: '/images/anh-thu-2.webp',
+  anh_thu_3: '/images/anh-thu-3.webp',
+  anh_thu_4: '/images/anh-thu-4.webp',
   bg1: '/images/bg1.jpeg',
-  bg10: '/images/bg10.png',
-  bg11: '/images/bg11.png',
-  bg12: '/images/bg12.png',
+  bg10: '/images/bg10.webp',
+  bg11: '/images/bg11.webp',
   bg2: '/images/bg2.jpeg',
   bg3: '/images/bg3.jpeg',
   bg4: '/images/bg4.jpeg',
@@ -38,8 +35,6 @@ export const imageMap = {
   carousel_7: '/images/carousel_7.jpeg',
   carousel_8: '/images/carousel_8.jpeg',
   carousel_9: '/images/carousel_9.jpeg',
-  cdau_20250824152431_mgs7c: '/images/cdau-20250824152431-mgs7c.png',
-  d589e2f7_74c4_4a3c_b8e6_f335adc8f2bb: '/images/d589e2f7-74c4-4a3c-b8e6-f335adc8f2bb.svg',
   gif_nhac_be_nau_20250718143617_k_wa3: '/images/gif-nhac-be-nau-20250718143617-k_wa3.gif',
   groom: '/images/groom.jpeg',
   header1: '/images/header1.jpeg',
@@ -53,16 +48,12 @@ export const imageMap = {
   imageFrame_7: '/images/imageFrame_7.jpeg',
   imageFrame_8: '/images/imageFrame_8.jpeg',
   imageFrame_9: '/images/imageFrame_9.jpeg',
-  ladipage_play: '/images/ladipage-play.svg',
-  ldicon_discount_coupon: '/images/ldicon-discount-coupon.svg',
   letter_1: '/images/letter-1.jpeg',
   letter_2: '/images/letter-2.jpeg',
-  new_ldicon_arrow_left: '/images/new-ldicon-arrow-left.svg',
   seperator: '/images/seperator.jpeg',
-  untitled_1_20250409032644_v_4bn: '/images/untitled-1-20250409032644-v_4bn.png',
-  untitled_dfww_20250420125807_7viyy: '/images/untitled-dfww-20250420125807-7viyy.png',
-  videoFrame: '/images/videoFrame.png',
-  vite: '/images/vite.svg'
+  untitled_1_20250409032644_v_4bn: '/images/untitled-1-20250409032644-v_4bn.webp',
+  untitled_dfww_20250420125807_7viyy: '/images/untitled-dfww-20250420125807-7viyy.webp',
+  videoFrame: '/images/videoFrame.webp'
 } as const;
 
 export type ImageKey = keyof typeof imageMap;
