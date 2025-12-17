@@ -1,5 +1,5 @@
 // Auto-generated image map - Do not edit manually
-// Generated at: 2025-12-17T04:08:40.266Z
+// Generated at: 2025-12-17T04:55:59.168Z
 
 export const imageMap = {
   _8c61a45d_c984_4c77_b6c5_644ec5162baa: '/images/8c61a45d-c984-4c77-b6c5-644ec5162baa.svg',

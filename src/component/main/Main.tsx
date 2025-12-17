@@ -1,10 +1,7 @@
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import MusicIcon from "@/icon/MusicIcon";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import Album from "./album/Album";
 import Booking from "./booking/Booking";
 import BrideAndGroom from "./brideAndGroom/BrideAndGroom";
@@ -13,9 +10,6 @@ import Header from "./header/Header";
 import Location from "./location.tsx/Location";
 import Seperator from "./seperator/Seperator";
 import Time from "./time/Time";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import MusicIcon from "@/icon/MusicIcon";
 
 const Main = () => {
   const [isPlaying, setIsPlaying] = useState(true);
