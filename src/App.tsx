@@ -15,6 +15,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { SplitText } from "gsap/SplitText";
 import { TextPlugin } from "gsap/TextPlugin";
 import Loader from "./component/loader/Loader";
+import { Toaster } from "react-hot-toast";
 
 gsap.registerPlugin(
   useGSAP,
@@ -38,6 +39,7 @@ function App() {
       {isLoading && <Loader onLoadComplete={() => setIsLoading(false)} />}
       {!isLoading && appState === APP_STATE.INTRO && <Greeting />}
       {!isLoading && appState === APP_STATE.MAIN && <Main />}
+      <Toaster />
     </div>
   );
 }

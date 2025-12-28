@@ -183,7 +183,7 @@ const Location = () => {
         <a
           target="_blank"
           href="https://www.google.com/maps/dir//82+Th%C3%A2n+V%C4%83n+Nhi%E1%BA%BFp,+An+Ph%C3%BA,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7594064,106.7165612,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31752676039207c3:0xa49becb0680b129b!2m2!1d106.7536237!2d10.7864477?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
-          className="location-direction font-fontTwo flex items-center gap-2 pt-4 text-base uppercase"
+          className="location-direction font-fontTwo flex items-center gap-2 py-4 text-base uppercase"
         >
           <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
             <path

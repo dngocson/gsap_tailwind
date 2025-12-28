@@ -1,11 +1,8 @@
 import { imageMap } from "@/imageMap";
 import { useRef, useEffect, useState } from "react";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { formatTime } from "@/utils/util";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Time = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,6 +12,7 @@ const Time = () => {
     minutes: 0,
     seconds: 0,
   });
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const targetDate = new Date();
@@ -43,10 +41,40 @@ const Time = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const { contextSafe } = useGSAP(
-    () => {
-      if (!containerRef.current) return;
+  // Wait for images to load before initializing animations
+  useEffect(() => {
+    if (!containerRef.current) return;
 
+    const images = containerRef.current.querySelectorAll("img");
+    let loadedCount = 0;
+
+    const checkAllImagesLoaded = () => {
+      loadedCount++;
+      if (loadedCount === images.length) {
+        setImagesLoaded(true);
+      }
+    };
+
+    images.forEach((img) => {
+      if (img.complete) {
+        checkAllImagesLoaded();
+      } else {
+        img.addEventListener("load", checkAllImagesLoaded);
+      }
+    });
+
+    return () => {
+      images.forEach((img) => {
+        img.removeEventListener("load", checkAllImagesLoaded);
+      });
+    };
+  }, []);
+
+  // Initialize ScrollTrigger animations after images are loaded
+  useEffect(() => {
+    if (!containerRef.current || !imagesLoaded) return;
+
+    const ctx = gsap.context(() => {
       // HG Letters Timeline
       const hgLettersTl = gsap.timeline({
         scrollTrigger: {
@@ -166,29 +194,34 @@ const Time = () => {
         duration: 1.25,
         ease: "back.out(2)",
       });
-    },
-    { scope: containerRef, dependencies: [] },
-  );
 
-  const onLetterImageClickHandler = contextSafe(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const element = e.currentTarget;
-      const classList = element.classList;
-      const originalRotation = classList.contains("letter-image-1") ? 12 : -6;
-      gsap.killTweensOf(element);
+      // Refresh ScrollTrigger after everything is set up
+      ScrollTrigger.refresh();
+    }, containerRef);
 
-      const tl = gsap.timeline();
-      tl.to(element, {
-        rotate: 0,
-        duration: 0.3,
-        ease: "power2.in",
-      }).to(element, {
-        rotate: originalRotation,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    },
-  );
+    return () => {
+      ctx.revert();
+    };
+  }, [imagesLoaded]);
+
+  const onLetterImageClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    const element = e.currentTarget;
+    const classList = element.classList;
+    const originalRotation = classList.contains("letter-image-1") ? 12 : -6;
+    gsap.killTweensOf(element);
+
+    const tl = gsap.timeline();
+    tl.to(element, {
+      rotate: 0,
+      duration: 0.3,
+      ease: "power2.in",
+    }).to(element, {
+      rotate: originalRotation,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
   return (
     <div
       ref={containerRef}

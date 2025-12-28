@@ -4,6 +4,7 @@ import { useForm } from "@tanstack/react-form";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import toast from "react-hot-toast";
 
 const Booking = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -86,8 +87,8 @@ const Booking = () => {
     validators: {
       onChange: rsvpSchema,
     },
-    onSubmit: async (values) => {
-      console.log("Form submitted with values:", values);
+    onSubmit: async () => {
+      toast.success("Cảm ơn bạn đã xác nhận nhé!");
     },
     onSubmitInvalid() {
       const InvalidInput = document.querySelector(
@@ -105,7 +106,7 @@ const Booking = () => {
       style={{ backgroundImage: `url(${imageMap.bg10})` }}
     >
       <img src={imageMap.bg5} className="absolute top-0 left-0 z-1" />
-      <img src={imageMap.bg12} className="absolute right-0 bottom-0 z-1" />
+      <img src={imageMap.bg11} className="absolute right-0 bottom-0 z-1" />
 
       <div
         ref={textRef}

@@ -42,7 +42,7 @@ const Carousel = () => {
     [
       Autoplay({
         playOnInit: true,
-        delay: 3000,
+        delay: 4500,
         stopOnMouseEnter: true,
         stopOnInteraction: false,
       }),
